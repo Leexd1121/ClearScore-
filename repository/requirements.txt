@@ -1,0 +1,6 @@
+numpy==2.5.4
+Pillow==13.0.0
+pi-heif-decoder==1.7.0.post4
+pypdf==6.21.1
+pypdfium2==5.14.0
+PySide6-Essentials==6.12.0

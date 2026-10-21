@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clearscore-desktop"
+version = "1.1.0"
+description = "Offline sheet music cleanup for PDFs, images and Word, with multilingual desktop UI."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [{name = "ClearScore contributors"}]
+dependencies = [
+    "numpy>=2.0,<3",
+    "Pillow>=11,<14",
+    "pi-heif-decoder==1.7.0.post4",
+    "pypdf>=6.0,<7",
+    "pypdfium2>=5.0,<6",
+    "PySide6-Essentials>=6.8,<7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "pyinstaller>=6.12,<7", "python-docx>=1.2,<2"]
+
+[project.gui-scripts]
+clearscore = "clearscore.app:main"
+
+[tool.setuptools.packages.find]
+include = ["clearscore*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
