@@ -4,8 +4,21 @@
 
 ClearScore 提供完整的桌面图形界面，不需要命令行、账号、API 或云端服务。文件只在本机处理，适合吉他谱、五线谱、六线谱以及其他以深色内容为主、浅灰水印为背景的文档。
 
-<img width="1360" height="900" alt="image" src="https://github.com/user-attachments/assets/7ce64392-04c9-46f1-8f42-3913a3482c71" />
+## Windows 2.1 · WinUI 3
 
+新版 Windows 界面已使用 **WinUI 3 + C# + Windows App SDK** 重建，提供原生侧边导航、Mica 背景、明暗主题、四种对比视图和四语界面。便携版随附运行库，运行时不加载 Qt；离线处理引擎保留原有曲谱保护规则。
+
+从 [GitHub Releases](https://github.com/Leexd1121/ClearScore-/releases) 下载 `ClearScore-2.1.0-winui3-windows-x64.zip`，完整解压后双击 `ClearScore/ClearScore.exe`。适用于 Windows 10 2004 及以上的 x64 系统。2.1 补齐程序与任务栏图标，并在“关于净谱”加入[项目主页](https://github.com/Leexd1121/ClearScore-)与“检查更新”：发现适用正式版后自动下载、校验、备份、替换和重启；已打开曲谱时可延后安装，先保存结果。
+
+曲谱处理始终离线，只有检查和下载更新会连接 GitHub，不上传文档，也不需要 API 密钥。1.1 / 2.0 用户首次升级需手动解压本版。新版说明、构建方法与限制见 [WinUI 3 文档](winui-app/README.md)、[更新协议](updater/README.md)和[验证记录](winui-app/VALIDATION.md)。下文涉及 `净谱.exe` 和 PySide6 的部分说明旧版 1.1；旧版源码继续保留，方便维护与对照。
+
+![WinUI 3 中文界面，使用程序生成的演示曲谱](docs/winui-interface.jpg)
+
+## Android 版
+
+项目现已包含独立的 [Android 应用](android-app/README.md)，使用 Kotlin 与 Jetpack Compose 开发，最低支持 Android 7.0。手机端提供本地曲谱清理、应用内液态玻璃折射、悬浮底部导航和连续形变转场，不依赖手机厂商提供的专用玻璃接口。
+
+Android 的格式范围、内存限制和验证记录与桌面版本分别说明，请参阅 [Android 文档](android-app/README.md) 和[验证记录](android-app/VALIDATION.md)。
 
 ## 项目特点
 
@@ -98,7 +111,7 @@ python -m venv .venv
 .\.venv\Scripts\python run.py
 ```
 
-依赖版本记录在 `requirements.txt` 中。安装依赖需要联网，软件运行及文件处理不需要网络。
+依赖版本记录在 `requirements.txt` 中。安装依赖需要联网，文件处理不需要网络；WinUI 3 新版的检查与下载更新功能需要连接 GitHub。
 
 ## 测试与构建
 
@@ -146,7 +159,10 @@ ClearScore 不会主动上传用户文件。语言偏好只保存在本机，应
 - 界面易用性、无障碍和性能优化；
 - 不含版权或个人信息的最小化测试样本。
 
+提交问题时请避免上传私人或受版权保护的完整曲谱。可以使用自行制作的最小示例，或只描述文件结构和复现步骤。
+
 ## 开源许可
 
 ClearScore 源码采用 [MIT License](LICENSE)。第三方组件保留各自许可证和署名，详见[第三方声明](THIRD_PARTY_NOTICES.md)。仓库中的界面截图和测试素材由程序生成，不包含用户曲谱。
-（悄悄话，其实这个软件主要是为了把曲谱水印去掉以便于你分享，但不要侵犯1他人知识产权！）
+
+发布流程见[GitHub 发布指南](docs/PUBLISHING.md)。
